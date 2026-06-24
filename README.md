@@ -23,10 +23,18 @@ Pieter Robberechts.
 ## Requirements
 
 - **Hugo extended ≥ 0.158**.
-- **Dart Sass** installed separately (`brew install dart-sass`, or see the
-  [Hugo docs](https://gohugo.io/functions/css/sass/#dart-sass)). The theme uses
-  the `css.Sass` `vars` option, which requires the Dart transpiler — the bundled
-  LibSass does not support it.
+- **Dart Sass** — installed separately. The theme's stylesheet uses Sass
+  modules (`@use`) and the `css.Sass` `vars` option, both of which require the
+  Dart transpiler; Hugo's bundled LibSass does **not** support them, so the
+  site will fail to build without Dart Sass. Install it any of these ways:
+
+  ```sh
+  brew install dart-sass        # macOS / Linux (Homebrew)
+  npm install -g sass           # any platform with Node
+  snap install dart-sass        # Linux (snap)
+  ```
+
+  See the [Hugo docs](https://gohugo.io/functions/css/sass/#dart-sass) for more.
 
 ## Install
 
