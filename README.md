@@ -28,9 +28,42 @@ Pieter Robberechts.
   the `css.Sass` `vars` option, which requires the Dart transpiler — the bundled
   LibSass does not support it.
 
+## Install
+
+Pick one of the two methods, then copy the annotated configuration from
+[exampleSite/hugo.toml](exampleSite/hugo.toml) into your site.
+
+### Option 1 — Git submodule
+
+```sh
+git submodule add https://github.com/iahsanujunda/hugo-theme-cactus themes/cactus
+```
+
+Then set the theme in your config:
+
+```toml
+theme = "cactus"
+```
+
+### Option 2 — Hugo Modules
+
+Initialize modules in your site (once), then import the theme:
+
+```sh
+hugo mod init github.com/<your-user>/<your-site>
+```
+
+```toml
+[module]
+  [[module.imports]]
+    path = "github.com/iahsanujunda/hugo-theme-cactus"
+```
+
+Update later with `hugo mod get -u`.
+
 ## Quick start
 
-Try the bundled example site:
+Prefer to try it first? Run the bundled example site from this repo:
 
 ```sh
 cd exampleSite
@@ -38,16 +71,6 @@ hugo server --themesDir ../..
 ```
 
 Open <http://localhost:1313>.
-
-### Use it in your own site
-
-Install as a Hugo module or clone into `themes/cactus`, then set the theme and
-copy the annotated configuration from
-[exampleSite/hugo.toml](exampleSite/hugo.toml):
-
-```toml
-theme = "cactus"
-```
 
 ## Configuration
 
