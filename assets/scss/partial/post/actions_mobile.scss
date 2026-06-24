@@ -1,0 +1,159 @@
+@use "../../variables" as *;
+@use "../../colors" as *;
+@use "../../mixins" as *;
+
+#footer-post {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 5000000;
+  width: 100%;
+  border-top: 1px solid $color-border;
+  background: $color-footer-mobile-1;
+  transition: opacity .2s;
+
+  a {
+    background: none;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  a.icon {
+    background: none;
+
+    &:hover {
+      color: $color-link;
+    }
+  }
+
+  #nav-footer {
+    padding-right: 1rem;
+    padding-left: 1rem;
+    background: $color-footer-mobile-2;
+    text-align: center;
+
+    a {
+      color: $color-accent-1;
+      font-size: 1em;
+    }
+
+    a:hover {
+      @include underline(5px, $color-accent-1);
+    }
+
+    ul {
+      display: table;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      list-style-type: none;
+
+      li {
+        display: inline-table;
+        padding: 10px;
+        width: 20%;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  #actions-footer {
+    overflow: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    width: 100%;
+    text-align: center;
+    white-space: nowrap;
+
+    a {
+      display: inline-block;
+      padding-left: 1rem;
+      color: $color-accent-1;
+    }
+  }
+
+  #share-footer {
+    padding-right: 1rem;
+    padding-left: 1rem;
+    background: $color-footer-mobile-2;
+    text-align: center;
+
+    ul {
+      display: table;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      list-style-type: none;
+
+      li {
+        display: inline-table;
+        padding: 10px;
+        width: 20%;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  #toc-footer {
+    clear: both;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background: $color-footer-mobile-2;
+    text-align: left;
+
+    // Hugo's .TableOfContents emits nested <ul><li><a> (no toc-level-* classes).
+    #TableOfContents ul {
+      margin: 0;
+      padding-left: 20px;
+      list-style-type: none;
+    }
+
+    a {
+      background: none;
+    }
+
+    a:hover {
+      color: $color-link;
+    }
+
+    // top-level entries (h2)
+    #TableOfContents > ul > li {
+      line-height: 30px;
+
+      > a {
+        color: $color-text;
+        font-size: .8rem;
+
+        &:before {
+          margin-right: .25em;
+          color: $color-accent-1;
+          content: "#";
+        }
+      }
+    }
+
+    // second-level entries (h3)
+    #TableOfContents > ul > li > ul > li {
+      line-height: 15px;
+
+      > a {
+        color: $color-meta;
+        font-size: .7rem;
+      }
+    }
+
+    // hide deeper levels (h4+), matching the original
+    #TableOfContents ul ul ul {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 500px) {
+  #footer-post-container {
+    display: none;
+  }
+}

@@ -1,0 +1,87 @@
+// Color schemes — port of _colors/{dark,light,classic,white}.styl.
+// Scheme is selected at build time from the Hugo `colorscheme` param via vars
+// (replaces Stylus `@import "_colors/" + $colors`).
+@use "sass:color";
+@use "hugo:vars" as cfg;
+
+$colorscheme: cfg.$colorscheme !default;
+
+// Declared at the stylesheet root so the @if branches below reassign (rather
+// than declare) them — top-level control flow assigns to these globals.
+$color-background: null;
+$color-border: null;
+$color-scrollbar: null;
+$color-meta: null;
+$color-link: null;
+$color-text: null;
+$color-accent-1: null;
+$color-accent-2: null;
+$color-accent-3: null;
+$color-quote: null;
+// `$_dir` controls the lightness direction of derived colors:
+// dark scheme lightens its background; the light schemes darken it.
+$_dir: 1;
+
+@if $colorscheme == "light" {
+  // by @GabiThume
+  $color-background: #e2e0de;
+  $color-border: #666;
+  $color-scrollbar: #999;
+  $color-meta: #666;
+  $color-link: rgba(43, 188, 138, 1);
+  $color-text: #363533;
+  $color-accent-3: #666666;
+  $color-accent-2: #111111;
+  $color-accent-1: #d44375;
+  $color-quote: #ab2251;
+  $_dir: -1;
+} @else if $colorscheme == "classic" {
+  $color-background: #fafafa;
+  $color-border: #666;
+  $color-scrollbar: #aaa;
+  $color-meta: #666;
+  $color-link: rgba(86, 124, 119, 0.4);
+  $color-text: #22272a;
+  $color-accent-1: #cc2a41;
+  $color-accent-2: rgba(86, 124, 119, 0.8);
+  $color-accent-3: #666;
+  $color-quote: #cc2a41;
+  $_dir: -1;
+} @else if $colorscheme == "white" {
+  // by @sergodeeva
+  $color-background: #ffffff;
+  $color-border: #666;
+  $color-scrollbar: #aaa;
+  $color-meta: #666;
+  $color-link: rgba(212, 128, 170, 1);
+  $color-text: #383838;
+  $color-accent-3: #8c8c8c;
+  $color-accent-2: #383838;
+  $color-accent-1: #2bbc8a;
+  $color-quote: #2bbc8a;
+  $_dir: -1;
+} @else {
+  // dark (default)
+  $color-background: #1d1f21;
+  $color-border: #908d8d;
+  $color-scrollbar: #999;
+  $color-meta: #908d8d;
+  $color-link: rgba(212, 128, 170, 1);
+  $color-text: #c9cacc;
+  $color-accent-3: #cccccc;
+  $color-accent-2: #eeeeee;
+  $color-accent-1: #2bbc8a;
+  $color-quote: #ccffb6;
+  $_dir: 1;
+}
+
+// Derived colors (faithful to each scheme's lighten/darken of the background).
+$color-footer-mobile-1: color.adjust($color-background, $lightness: 2% * $_dir);
+$color-footer-mobile-2: color.adjust($color-background, $lightness: 10% * $_dir);
+$color-background-code: color.adjust($color-background, $lightness: 2% * $_dir);
+
+// dark uses meta verbatim for code-meta; the light schemes lighten it by 10%.
+$color-meta-code: $color-meta;
+@if $colorscheme != "dark" {
+  $color-meta-code: color.adjust($color-meta, $lightness: 10%);
+}

@@ -1,0 +1,23 @@
+// Entry — port of style.styl. Manifest of modules in cascade order.
+// Foundation modules (variables/colors/mixins/extend) emit no CSS; the rest do.
+@use "fonts";
+@use "util";
+@use "base";
+
+// Partials (ported from source/css/_partial/*.styl)
+@use "partial/header";
+@use "partial/post/actions_desktop";
+@use "partial/post/actions_mobile";
+@use "partial/index";
+@use "partial/article";
+@use "partial/archive";
+@use "partial/comments";
+@use "partial/footer";
+@use "partial/pagination";
+@use "partial/search";
+@use "partial/tags";
+@use "partial/tooltip";
+@use "partial/categories";
+
+// Code highlighting (Chroma-backed; §8) — last so it cascades over partials.
+@use "code";

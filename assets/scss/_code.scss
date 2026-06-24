@@ -1,0 +1,114 @@
+// Code blocks — port of the tail of style.styl (pre/code/.highlight).
+// Loaded last so it cascades over the partials. Chroma markup (§8) reuses
+// `.highlight`; the `.btn-copy` rules here back the copy button.
+@use "sass:color";
+@use "variables" as *;
+@use "colors" as *;
+@use "mixins" as *;
+
+pre {
+  overflow-x: auto;
+  padding: 10px 15px;
+  padding-bottom: 0;
+  border: 1px dotted $color-border;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: $font-family-mono;
+  line-height: 22px;
+  -webkit-border-radius: 4px;
+
+  code {
+    display: block;
+    padding: 0;
+    border: none;
+  }
+}
+
+code {
+  padding: 0 5px;
+  border: 1px dotted $color-border;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+
+.highlight {
+  position: relative; // anchors the absolutely-positioned .btn-copy
+  overflow-x: auto;
+  margin: 1rem 0;
+  padding: 10px 15px;
+  border-radius: 4px;
+  background: $color-background-code;
+  font-family: $font-family-mono;
+  // color: $color-accent-3;
+  -webkit-border-radius: 4px;
+
+  figcaption {
+    margin: -5px 0 5px;
+    color: $color-meta-code;
+    font-size: 0.9em;
+    transform: scale(1);
+
+    a {
+      float: right;
+      color: $color-meta-code;
+      font-style: italic;
+      font-size: 0.8em;
+      @include underline(10px, $color-link);
+    }
+
+    a:hover {
+      color: color.adjust($color-meta-code, $lightness: 20%);
+    }
+
+    &:before {
+      content: "";
+      display: table;
+    }
+
+    &:after {
+      clear: both;
+    }
+  }
+
+  &:hover {
+    .btn-copy {
+      opacity: 1;
+    }
+  }
+
+  .btn-copy {
+    font-size: 1.2rem;
+    position: absolute;
+    right: 20px;
+    opacity: 0;
+    transition: opacity 0.2s ease-in;
+
+    &:hover {
+      color: $color-accent-1;
+    }
+  }
+
+  pre {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+  }
+
+  table {
+    width: auto;
+  }
+
+  td.gutter {
+    text-align: right;
+    opacity: 0.2;
+  }
+
+  .line {
+    height: 22px;
+  }
+}
+
+#header-post #actions {
+  direction: ltr !important;
+}

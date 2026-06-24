@@ -1,0 +1,25 @@
+# Hugo i18n — flattened from Hexo languages/nl.yml (dotted keys).
+# Auto-generated in step 7 of the migration.
+nav.home: Home
+nav.about: Over mij
+nav.articles: Blog
+nav.projects: Projecten
+nav.search: Zoeken
+footer.copyright: Copyright
+index.find_me_on: Je vindt me op
+index.enum_comma: ','
+index.enum_and: en
+index.articles: Blogposts
+index.projects: Projecten
+post.desktop.previous: Vorige post
+post.desktop.next: Volgende post
+post.desktop.back_to_top: Naar boven
+post.desktop.share: Deel deze post
+post.mobile.menu: Menu
+post.mobile.toc: Inhoudsopgave
+post.mobile.back_to_top: Top
+post.mobile.share: Deel
+search.search: zoeken...
+search.no_results: Geen resultaten gevonden.
+pagination.page: Pagina %d van %d
+comments.no_js: Activeer Javascript om de commentaarsectie te kunnen bekijken.

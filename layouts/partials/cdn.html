@@ -1,0 +1,33 @@
+{{- /* CDN helper (§9) — port of scripts/cdn.js (isCdnEnable/getCdnScript/getCdnLink).
+       Emits a CDN tag when [params.cdn].enable is true AND the resource key is set;
+       otherwise falls back to a local asset path.
+       Context: dict
+         "resource" STR   key under [params.cdn] (e.g. "fontAwesome")
+         "type"     STR   "link" (stylesheet) or "script"  (default "link")
+         "preload"  BOOL  for links: emit a preload + onload swap (+ <noscript>)
+         "local"    STR   local fallback path used when the CDN is off/unset */ -}}
+{{- $cdn := site.Params.cdn -}}
+{{- $type := .type | default "link" -}}
+{{- $url := "" -}}
+{{- if and $cdn $cdn.enable .resource -}}
+  {{- $url = index $cdn .resource -}}
+{{- end -}}
+{{- if $url -}}
+  {{- if eq $type "script" -}}
+    <script src="{{ $url }}" crossorigin="anonymous"></script>
+  {{- else if .preload -}}
+    <link rel="preload" as="style" href="{{ $url }}" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'">
+  {{- else -}}
+    <link rel="stylesheet" href="{{ $url }}" crossorigin="anonymous">
+  {{- end -}}
+{{- else if .local -}}
+  {{- $local := .local | relURL -}}
+  {{- if eq $type "script" -}}
+    <script src="{{ $local }}"></script>
+  {{- else if .preload -}}
+    <link rel="preload" as="style" href="{{ $local }}" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ $local }}"></noscript>
+  {{- else -}}
+    <link rel="stylesheet" href="{{ $local }}">
+  {{- end -}}
+{{- end -}}

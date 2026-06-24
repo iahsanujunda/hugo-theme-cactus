@@ -1,0 +1,14 @@
+{{- /* Disqus loader (§9) — extracted from scripts.ejs (was inline).
+       Pairs with the #disqus_thread container in comments.html. */ -}}
+{{- if and .Params.comments .Site.Params.disqus.enabled .Site.Params.disqus.shortname -}}
+<script type="text/javascript">
+  var disqus_shortname = '{{ .Site.Params.disqus.shortname }}';
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  }());
+</script>
+{{- end -}}

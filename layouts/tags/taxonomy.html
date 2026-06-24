@@ -1,0 +1,17 @@
+{{ define "main" }}
+{{- /* Tags landing page (§6) — port of layout/page.ejs `tags` branch (tag cloud). */ -}}
+{{- $n := 0 -}}
+{{- range .Site.Taxonomies.tags -}}{{ if gt .Count 0 }}{{ $n = add $n 1 }}{{ end }}{{- end -}}
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="content" itemprop="articleBody">
+    <div id="tag-cloud">
+      <div class="tag-cloud-title">
+        {{ if eq $n 0 }}{{ i18n "counter.tag_cloud.zero" }}{{ end }}
+      </div>
+      <div class="tag-cloud-tags">
+        {{ partial "tagcloud.html" (dict "minFont" 12 "maxFont" 30) }}
+      </div>
+    </div>
+  </div>
+</article>
+{{ end }}

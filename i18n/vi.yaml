@@ -1,0 +1,39 @@
+# Hugo i18n — flattened from Hexo languages/vi.yml (dotted keys).
+# Auto-generated in step 7 of the migration.
+nav.home: Trang chủ
+nav.about: Giới thiệu
+nav.articles: Bài viết
+nav.tag: Thẻ
+nav.category: Thể loại
+nav.projects: Dự án
+nav.search: Tìm kiếm
+footer.copyright: Bản quyền
+index.find_me_on: Tìm tôi trên
+index.enum_comma: ','
+index.enum_and: and
+index.articles: Bài viết
+index.projects: Dự án
+index.topics: Chủ đề
+index.most_recent: Gần đây nhất
+post.desktop.previous: Bài trước
+post.desktop.next: Bài tiếp theo
+post.desktop.back_to_top: Về đầu trang
+post.desktop.share: Chia sẻ bài viết
+post.mobile.menu: Menu
+post.mobile.toc: TOC
+post.mobile.back_to_top: Về đầu trang
+post.mobile.share: Chia sẻ
+search.search: Tìm kiếm...
+search.no_results: Không tìm thấy kết quả.
+tag_cloud.zero: Không có thẻ
+pagination.page: Trang% d của% d
+counter.tag_cloud.zero: Không có thẻ
+counter.tag_cloud.one: ''
+counter.tag_cloud.other: ''
+categories.zero: không có danh mục
+categories.one: ''
+categories.other: ''
+archive_posts.zero: Không có bài viết.
+archive_posts.one: ''
+archive_posts.other: ''
+comments.no_js: Vui lòng kích hoạt JavaScript để xem các bình luận.

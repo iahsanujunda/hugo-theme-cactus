@@ -1,0 +1,43 @@
+# Hugo i18n — flattened from Hexo languages/tr.yml (dotted keys).
+# Auto-generated in step 7 of the migration.
+nav.home: Ana Sayfa
+nav.about: Hakkımda
+nav.articles: Yazılar
+nav.tag: Etiketler
+nav.category: Kategoriler
+nav.projects: Projeler
+nav.search: Ara
+icons.menu: Menü
+icons.top: Üst
+footer.copyright: Tüm Hakları Saklıdır
+index.find_me_on: 'Bana ulaşın:'
+index.enum_comma: ','
+index.enum_and: ','
+index.articles: Yazılar
+index.projects: Projeler
+index.topics: Başlıklar
+index.most_recent: En yeni
+post.desktop.previous: Önceki gönderi
+post.desktop.next: Sonraki gönderi
+post.desktop.back_to_top: Başa dön
+post.desktop.share: Gönderiyi paylaş
+post.mobile.menu: Menü
+post.mobile.toc: İçindekiler
+post.mobile.back_to_top: Başa dön
+post.mobile.share: Paylaş
+search.search: Ara...
+search.no_results: Hiçbir sonuç bulunamadı.
+tag_cloud.zero: Etiket yok
+pagination.page: Sayfa %d/%d
+counter.tag_cloud.zero: Etiket yok
+counter.tag_cloud.one: ''
+counter.tag_cloud.other: ''
+counter.categories.zero: Kategori yok
+counter.categories.one: ''
+counter.categories.other: ''
+counter.archive_posts.zero: Gönderi yok
+counter.archive_posts.one: ''
+counter.archive_posts.other: ''
+comments.no_js: Yorumları görebilmek için lütfen JavaScript'e izin verin.
+tooltip.copy_tip: Kopyala
+tooltip.copied: Kopyalandı!

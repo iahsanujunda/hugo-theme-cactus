@@ -1,0 +1,25 @@
+# Hugo i18n — flattened from Hexo languages/fr.yml (dotted keys).
+# Auto-generated in step 7 of the migration.
+nav.home: Accueil
+nav.about: A propos
+nav.articles: Archives
+nav.projects: Projets
+nav.search: Rechercher
+footer.copyright: Copyright
+index.find_me_on: Retrouve moi sur
+index.enum_comma: ','
+index.enum_and: et
+index.articles: Articles
+index.projects: Projets
+post.desktop.previous: Article précédent
+post.desktop.next: Article suivant
+post.desktop.back_to_top: Retour en haut
+post.desktop.share: Partager
+post.mobile.menu: Menu
+post.mobile.toc: Sections
+post.mobile.back_to_top: Début
+post.mobile.share: Partager
+search.search: rechercher...
+search.no_results: Aucun résultat trouvé.
+pagination.page: Page %d sur %d
+comments.no_js: Veuillez activer JavaScript pour voir les réactions.

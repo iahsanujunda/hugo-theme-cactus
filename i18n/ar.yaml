@@ -1,0 +1,43 @@
+# Hugo i18n — flattened from Hexo languages/ar.yml (dotted keys).
+# Auto-generated in step 7 of the migration.
+nav.home: الرئيسية
+nav.about: معلومات عنّي
+nav.articles: منشورات
+nav.tag: تسمية
+nav.category: تصنيف
+nav.projects: مشاريع
+nav.search: بحث
+icons.menu: القائمة
+icons.top: الأعلى
+footer.copyright: حقوق النشر
+index.find_me_on: يمكننا التواصل من خلال
+index.enum_comma: ','
+index.enum_and: و
+index.articles: منشورات
+index.projects: مشاريع
+index.topics: مواضيع
+index.most_recent: المنشور مؤخراً
+post.desktop.previous: المنشور السابق
+post.desktop.next: المنشور التالي
+post.desktop.back_to_top: العودة إلى الأعلى
+post.desktop.share: مشاركة المنشور
+post.mobile.menu: القائمة
+post.mobile.toc: المحتويات
+post.mobile.back_to_top: العودة إلى الأعلى
+post.mobile.share: مشاركة
+search.search: بحث...
+search.no_results: لم يتم العثور على نتائج.
+tag_cloud.zero: لايوجد تسميات
+pagination.page: الصفحة %d من أصل %d
+counter.tag_cloud.zero: لايوجد تسميات
+counter.tag_cloud.one: ''
+counter.tag_cloud.other: ''
+counter.categories.zero: لايوجد تصنيفات
+counter.categories.one: ''
+counter.categories.other: ''
+counter.archive_posts.zero: لايوجد منشورات.
+counter.archive_posts.one: ''
+counter.archive_posts.other: ''
+comments.no_js: يرجى تفعيل JavaScript في المتصفح لعرض التعليقات.
+tooltip.copy_tip: انسخ!
+tooltip.copied: تم النسخ!

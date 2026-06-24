@@ -1,0 +1,17 @@
+# Hugo build output & caches (incl. the example site's)
+/public/
+/resources/
+.hugo_build.lock
+exampleSite/public/
+exampleSite/resources/
+exampleSite/.hugo_build.lock
+
+# Dart Sass / Hugo module caches
+/.hugo_cache/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+
+# Local tooling
+.claude/

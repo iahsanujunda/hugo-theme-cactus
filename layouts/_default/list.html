@@ -1,0 +1,7 @@
+{{ define "main" }}
+{{- /* Archive (§6) — the posts section (/posts/) and taxonomy TERM pages
+       (/tags/x, /categories/x) both render the year-grouped archive of their
+       .Pages. The /tags/ and /categories/ landing pages use the taxonomy
+       templates (tags/taxonomy.html, categories/taxonomy.html) instead. */ -}}
+{{ partial "archive.html" . }}
+{{ end }}

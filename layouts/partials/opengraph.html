@@ -1,0 +1,26 @@
+{{- /* OpenGraph + Twitter Card + description (§7/§10) — replaces Hexo's
+       open_graph() helper and uses .Params.thumbnail | .Params.banner as the
+       share image (port of scripts/thumbnail.js). */ -}}
+{{- $ogtitle := cond .IsHome .Site.Title (.Title | default .Site.Title) -}}
+{{- $type := cond .IsPage "article" "website" -}}
+{{- $img := or .Params.thumbnail .Params.banner -}}
+{{- $desc := .Description -}}
+{{- if not $desc }}{{ $desc = cond .IsPage .Summary .Site.Params.description }}{{ end -}}
+{{- $desc = $desc | plainify | chomp -}}
+{{- $og := .Site.Params.openGraph -}}
+{{ with $desc }}<meta name="description" content="{{ . }}">{{ end }}
+<meta property="og:type" content="{{ $type }}">
+<meta property="og:title" content="{{ $ogtitle }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+{{ with $desc }}<meta property="og:description" content="{{ . }}">{{ end }}
+{{ with $img }}<meta property="og:image" content="{{ . | absURL }}">{{ end }}
+{{- with $og }}
+{{ with .fbAppId }}<meta property="fb:app_id" content="{{ . }}">{{ end }}
+{{ with .fbAdmins }}<meta property="fb:admins" content="{{ . }}">{{ end }}
+{{- end }}
+<meta name="twitter:card" content="{{ if $img }}summary_large_image{{ else }}summary{{ end }}">
+<meta name="twitter:title" content="{{ $ogtitle }}">
+{{ with $desc }}<meta name="twitter:description" content="{{ . }}">{{ end }}
+{{ with $img }}<meta name="twitter:image" content="{{ . | absURL }}">{{ end }}
+{{- with $og }}{{ with .twitterId }}<meta name="twitter:creator" content="{{ . }}">{{ end }}{{ end }}

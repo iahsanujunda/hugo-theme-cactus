@@ -1,0 +1,24 @@
+{{- /* Tag cloud (§2/§8) — replicates Hexo's logarithmic tagcloud:
+       size = min + (max-min)*(log(count)-log(minCount))/(log(maxCount)-log(minCount))
+       Context: dict "minFont" N "maxFont" N (defaults 10 / 20). Order by name. */ -}}
+{{- $minFont := .minFont | default 10 -}}
+{{- $maxFont := .maxFont | default 20 -}}
+{{- $tags := site.Taxonomies.tags -}}
+{{- if gt (len $tags) 0 -}}
+  {{- $counts := slice -}}
+  {{- range $tags -}}{{ $counts = $counts | append .Count }}{{- end -}}
+  {{- $sorted := sort $counts -}}
+  {{- $min := index $sorted 0 -}}
+  {{- $max := index $sorted (sub (len $sorted) 1) -}}
+  {{- $logMin := math.Log $min -}}
+  {{- $diff := sub (math.Log $max) $logMin -}}
+  {{- range $name, $taxonomy := $tags -}}
+    {{- $size := $minFont -}}
+    {{- if gt $diff 0.0 -}}
+      {{- $size = add $minFont (mul (sub $maxFont $minFont) (div (sub (math.Log $taxonomy.Count) $logMin) $diff)) -}}
+    {{- end -}}
+    {{- with site.GetPage (printf "/tags/%s" ($name | urlize)) -}}
+      <a href="{{ .RelPermalink }}" style="font-size: {{ printf "%.2f" $size }}px">{{ $name }}</a>
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

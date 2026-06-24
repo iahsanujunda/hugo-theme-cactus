@@ -1,0 +1,71 @@
+{{ define "main" }}
+{{- /* Home (§4) — faithful port of layout/index.ejs. */ -}}
+<section id="about" class="p-note">
+  {{ with .Site.Params.description }}
+    {{ . | markdownify }}
+  {{ end }}
+  {{ with .Site.Params.socialLinks }}
+    <p>
+      {{ i18n "index.find_me_on" }}
+      {{- $n := len . -}}
+      {{- range $i, $l := . -}}
+        {{- $title := or $l.label $l.icon -}}
+        {{- if eq $l.icon "mail" -}}
+          <a class="icon u-email" target="_blank" rel="noopener" href="{{ $l.link }}" aria-label="{{ $title }}" title="{{ $title }}"><i class="fa-solid fa-envelope"></i></a>
+        {{- else if eq $l.icon "rss" -}}
+          <a class="icon" target="_blank" rel="noopener" href="{{ $l.link }}" aria-label="{{ $title }}" title="{{ $title }}"><i class="fa-solid fa-rss"></i></a>
+        {{- else -}}
+          <a class="icon u-url" target="_blank" rel="noopener me" href="{{ $l.link | relURL }}" aria-label="{{ $title }}" title="{{ $title }}"><i class="fa-brands fa-{{ $l.icon }}"></i></a>
+        {{- end -}}
+        {{- if lt $i (sub $n 1) }}{{ if eq $i (sub $n 2) }} {{ i18n "index.enum_and" }} {{ else }}{{ i18n "index.enum_comma" }} {{ end }}{{ else }}.{{ end -}}
+      {{- end -}}
+    </p>
+  {{ end }}
+</section>
+
+<section id="writing">
+  <span class="h1"><a href="{{ with .Site.GetPage "/posts" }}{{ .RelPermalink }}{{ end }}">{{ i18n "index.articles" }}</a></span>
+  {{ $po := .Site.Params.postsOverview }}
+  {{ $useUpdated := $po.sortUpdated }}
+  {{ if and .Site.Params.tagsOverview.enabled (gt (len .Site.Taxonomies.tags) 0) }}
+    <span class="h2">{{ i18n "index.topics" }}</span>
+    <span class="widget tagcloud">{{ partial "tagcloud.html" (dict "minFont" 10 "maxFont" 20) }}</span>
+    <span class="h2">{{ i18n "index.most_recent" }}</span>
+  {{ end }}
+
+  {{ $posts := where .Site.RegularPages "Section" "posts" }}
+  {{ if $useUpdated }}{{ $posts = $posts.ByLastmod.Reverse }}{{ else }}{{ $posts = $posts.ByDate.Reverse }}{{ end }}
+  {{ $showAll := $po.showAllPosts }}
+  {{ $list := $posts }}
+  {{ if $showAll }}
+    {{ $paginator := .Paginate $posts }}
+    {{ $list = $paginator.Pages }}
+  {{ else }}
+    {{ $list = first (default 5 $po.postCount) $posts }}
+  {{ end }}
+
+  <ul class="post-list">
+    {{ range $list }}
+      <li class="post-item">
+        {{ partial "post/date.html" (dict "post" . "isPost" false "className" "meta" "useUpdated" $useUpdated) }}
+        <span>{{ partial "post/title.html" (dict "post" . "index" true "className" "") }}</span>
+      </li>
+    {{ end }}
+  </ul>
+
+  {{ if $showAll }}{{ partial "pagination.html" . }}{{ end }}
+</section>
+
+{{ with hugo.Data.projects }}{{/* hugo.Data replaces the deprecated .Site.Data (Hugo ≥0.156). */}}
+<section id="projects">
+  <span class="h1"><a href="{{ $.Site.Params.projectsUrl }}">{{ i18n "index.projects" }}</a></span>
+  <ul class="project-list">
+    {{ range . }}
+      <li class="project-item">
+        <a href="{{ .url }}">{{ .name }}</a>: {{ .description | markdownify }}
+      </li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}
+{{ end }}

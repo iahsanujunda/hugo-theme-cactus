@@ -1,0 +1,6 @@
+{{- /* Umami Analytics (§9) — port of umami_analytics.ejs. */ -}}
+{{- with .Site.Params.umamiAnalytics -}}
+{{- if and .enabled .id .host .scriptName -}}
+<script async defer data-website-id="{{ .id }}" src="{{ .host }}/{{ .scriptName }}"></script>
+{{- end -}}
+{{- end -}}

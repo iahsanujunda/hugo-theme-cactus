@@ -1,0 +1,12 @@
+{{- /* Google Analytics (§9) — port of google_analytics.ejs. */ -}}
+{{- with .Site.Params.googleAnalytics -}}
+{{- if and .enabled .id -}}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ .id }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{ .id }}');
+</script>
+{{- end -}}
+{{- end -}}

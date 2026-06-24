@@ -1,0 +1,14 @@
+{{- /* Post title (§5) — port of _partial/post/title.ejs.
+       Context: dict "post" PAGE "index" BOOL "className" STR */ -}}
+{{- $post := .post -}}
+{{- $cls := .className -}}
+{{- $title := $post.Title | default "Untitled" -}}
+{{- if .index -}}
+  {{- with $post.Params.link -}}
+    <a class="{{ $cls }}" href="{{ . }}" target="_blank" itemprop="url">{{ $title }}</a>
+  {{- else -}}
+    <a class="{{ $cls }}" href="{{ $post.RelPermalink }}">{{ $title }}</a>
+  {{- end -}}
+{{- else -}}
+  <h1 class="{{ $cls }} p-name" itemprop="name headline">{{ $title }}</h1>
+{{- end -}}

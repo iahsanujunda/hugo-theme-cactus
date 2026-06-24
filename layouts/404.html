@@ -1,0 +1,14 @@
+{{ define "main" }}
+{{- /* 404 (§10) — port of layout/404.ejs. Hugo generates 404.html from this
+       template automatically (replacing Hexo's scripts/error_404.js). */ -}}
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="content" itemprop="articleBody">
+    {{ with .Site.Params.error404 }}
+      {{ if and .enabled .title .description }}
+        <h1>{{ .title }}</h1>
+        <p>{{ .description }}</p>
+      {{ end }}
+    {{ end }}
+  </div>
+</article>
+{{ end }}

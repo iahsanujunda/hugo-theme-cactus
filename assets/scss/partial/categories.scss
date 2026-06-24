@@ -1,0 +1,22 @@
+@use "../variables" as *;
+@use "../colors" as *;
+@use "../mixins" as *;
+
+#categories {
+  .category-list-title {
+    color: $color-meta;
+  }
+  .category-list {
+    .category-list-item {
+      .category-list-count {
+        color: $color-meta;
+      }
+      .category-list-count:before {
+        content: " (";
+      }
+      .category-list-count:after {
+        content: ")";
+      }
+    }
+  }
+}

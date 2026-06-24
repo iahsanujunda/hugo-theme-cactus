@@ -1,0 +1,20 @@
+{{- /* Share links (§5) — port of _partial/post/share.ejs.
+       Context: dict "page" PAGE "iconClass" STR */ -}}
+{{- $p := .page -}}
+{{- $ic := .iconClass -}}
+{{- $url := $p.Permalink -}}
+{{- $title := $p.Title -}}
+{{- $excerpt := $p.Summary | plainify -}}
+<ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u={{ $url }}"><i class="fab fa-facebook {{ $ic }}" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url={{ $url }}&text={{ $title }}"><i class="fab fa-twitter {{ $ic }}" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url={{ $url }}&title={{ $title }}"><i class="fab fa-linkedin {{ $ic }}" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url={{ $url }}&is_video=false&description={{ $title }}"><i class="fab fa-pinterest {{ $ic }}" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject={{ $title }}&body=Check out this article: {{ $url }}"><i class="fa-solid fa-envelope {{ $ic }}" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url={{ $url }}&title={{ $title }}"><i class="fab fa-get-pocket {{ $ic }}" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url={{ $url }}&title={{ $title }}"><i class="fab fa-reddit {{ $ic }}" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url={{ $url }}&title={{ $title }}"><i class="fab fa-stumbleupon {{ $ic }}" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url={{ $url }}&title={{ $title }}"><i class="fab fa-digg {{ $ic }}" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url={{ $url }}&name={{ $title }}&description={{ $excerpt }}"><i class="fab fa-tumblr {{ $ic }}" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u={{ $url }}&t={{ $title }}"><i class="fab fa-hacker-news {{ $ic }}" aria-hidden="true"></i></a></li>
+</ul>

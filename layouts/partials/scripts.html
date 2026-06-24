@@ -1,0 +1,48 @@
+{{- /* Scripts (§2/§8/§9) — port of _partial/scripts.ejs, ZERO jQuery (DECIDED). */ -}}
+
+{{/* i18n bridge for vanilla JS (copy-button tooltips, §8). */}}
+<script>window.cactusI18n = {copyTip: {{ i18n "tooltip.copy_tip" | jsonify }}, copied: {{ i18n "tooltip.copied" | jsonify }}};</script>
+
+{{ with resources.Get "js/main.js" }}
+  {{ $main := . | js.Build (dict "minify" hugo.IsProduction) | fingerprint }}
+  <script src="{{ $main.RelPermalink }}"></script>
+{{ end }}
+
+{{/* Search (§9) — only on the search page; reads /index.json. */}}
+{{ if eq .Layout "search" }}
+  {{ with resources.Get "js/search.js" }}
+    {{ $search := . | js.Build (dict "minify" hugo.IsProduction) | fingerprint }}
+    <script src="{{ $search.RelPermalink }}"></script>
+  {{ end }}
+  <script>
+  (function () {
+    var input = document.getElementById('search-input');
+    if (!input) return;
+    var result = document.getElementById('search-result');
+    var noResult = document.querySelector('.search-no-result');
+    var bound = false;
+    input.addEventListener('focus', function () {
+      if (bound) return;
+      bound = true;
+      searchFunc("{{ with .Site.Home.OutputFormats.Get "json" }}{{ .RelPermalink }}{{ end }}", 'search-input', 'search-result');
+    });
+    input.addEventListener('keydown', function (e) { if (e.which === 13) e.preventDefault(); });
+    if (result) {
+      var observer = new MutationObserver(function (list) {
+        if (list.length === 1) {
+          if (list[0].addedNodes.length) { if (noResult) noResult.style.display = 'none'; }
+          else if (list[0].removedNodes.length) { if (noResult) noResult.style.display = ''; }
+        }
+      });
+      observer.observe(result, { childList: true });
+    }
+  })();
+  </script>
+{{ end }}
+
+{{ partial "baidu_analytics.html" . }}
+{{ partial "cloudflare_analytics.html" . }}
+
+{{/* Comments (§9) — loaders pair with the containers in comments.html. */}}
+{{ partial "disqus.html" . }}
+{{ partial "utterances.html" . }}

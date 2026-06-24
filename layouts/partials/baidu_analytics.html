@@ -1,0 +1,14 @@
+{{- /* Baidu Analytics (§9) — extracted from scripts.ejs (was inline). */ -}}
+{{- with .Site.Params.baiduAnalytics -}}
+{{- if and .enabled .id -}}
+<script type="text/javascript">
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?{{ .id }}";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+{{- end -}}
+{{- end -}}

@@ -1,0 +1,20 @@
+{{- /* Post date (§5) — port of _partial/post/date.ejs.
+       Context: dict "post" PAGE "isPost" BOOL "className" STR "useUpdated" BOOL */ -}}
+{{- $post := .post -}}
+{{- $cls := .className -}}
+{{- $fmt := default "2 Jan 2006" site.Params.dateFormat -}}
+{{- $iso := "2006-01-02T15:04:05Z07:00" -}}
+{{- with $post.Date -}}
+<div class="{{ $cls }}">
+  {{- if $.isPost -}}
+    <time datetime="{{ $post.Date.Format $iso }}" class="dt-published" itemprop="datePublished">{{ $post.Date.Format $fmt }}</time>
+    {{- if and site.Params.post.showUpdated (ne $post.Date $post.Lastmod) }}
+      (Updated: <time datetime="{{ $post.Lastmod.Format $iso }}" class="dt-updated" itemprop="dateModified">{{ $post.Lastmod.Format $fmt }}</time>)
+    {{- end -}}
+  {{- else if $.useUpdated -}}
+    <time datetime="{{ $post.Lastmod.Format $iso }}" class="dt-updated" itemprop="dateModified">{{ $post.Lastmod.Format $fmt }}</time>
+  {{- else -}}
+    <time datetime="{{ $post.Date.Format $iso }}" class="dt-published" itemprop="datePublished">{{ $post.Date.Format $fmt }}</time>
+  {{- end -}}
+</div>
+{{- end -}}

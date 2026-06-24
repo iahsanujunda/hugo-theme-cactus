@@ -1,0 +1,43 @@
+# Hugo i18n — flattened from Hexo languages/ua.yml (dotted keys).
+# Auto-generated in step 7 of the migration.
+nav.home: Головна
+nav.about: Про мене
+nav.articles: Статті
+nav.tag: Теґи
+nav.category: Категорії
+nav.projects: Проєкти
+nav.search: Пошук
+icons.menu: Меню
+icons.top: Вгору
+footer.copyright: Copyright
+index.find_me_on: Знайди мене в
+index.enum_comma: ','
+index.enum_and: і
+index.articles: Статті
+index.projects: Проєкти
+index.topics: Теми
+index.most_recent: Нові
+post.desktop.previous: Попередній допис
+post.desktop.next: Наступний допис
+post.desktop.back_to_top: Вгору
+post.desktop.share: Поширити допис
+post.mobile.menu: Меню
+post.mobile.toc: TOC
+post.mobile.back_to_top: Вгору
+post.mobile.share: Поширити
+search.search: Пошук...
+search.no_results: Нічого не знайдено.
+tag_cloud.zero: Теґи відсутні
+pagination.page: Сторінка %d з %d
+counter.tag_cloud.zero: Теґи відсутні
+counter.tag_cloud.one: ''
+counter.tag_cloud.other: ''
+counter.categories.zero: Категорії відсутні
+counter.categories.one: ''
+counter.categories.other: ''
+counter.archive_posts.zero: Дописи відсутні
+counter.archive_posts.one: ''
+counter.archive_posts.other: ''
+comments.no_js: Це не працювавтиме без JavaScript.
+tooltip.copy_tip: Скопіювати до буферу обміну!
+tooltip.copied: Скопійовано!

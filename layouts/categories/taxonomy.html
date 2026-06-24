@@ -1,0 +1,17 @@
+{{ define "main" }}
+{{- /* Categories landing page (§6) — port of layout/page.ejs `categories` branch. */ -}}
+{{- $n := 0 -}}
+{{- range .Site.Taxonomies.categories -}}{{ if gt .Count 0 }}{{ $n = add $n 1 }}{{ end }}{{- end -}}
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="content" itemprop="articleBody">
+    <div id="categories">
+      <div class="category-list-title">
+        {{ if eq $n 0 }}{{ i18n "counter.categories.zero" }}{{ end }}
+      </div>
+      <div class="category-list">
+        {{ partial "list-categories.html" . }}
+      </div>
+    </div>
+  </div>
+</article>
+{{ end }}

@@ -1,0 +1,43 @@
+# Hugo i18n — flattened from Hexo languages/zh-CN.yml (dotted keys).
+# Auto-generated in step 7 of the migration.
+nav.home: 首页
+nav.about: 关于
+nav.articles: 归档
+nav.projects: 项目
+nav.tag: 标签
+nav.category: 分类
+nav.search: 搜索
+icons.menu: 目录
+icons.top: 顶部
+footer.copyright: Copyright
+index.find_me_on: 在这里找到我：
+index.enum_comma: ，
+index.enum_and: 和
+index.articles: 文章
+index.projects: 项目
+index.topics: 标签
+index.most_recent: 最新发布
+post.desktop.previous: 上一篇
+post.desktop.next: 下一篇
+post.desktop.back_to_top: 返回顶部
+post.desktop.share: 分享文章
+post.mobile.menu: 菜单
+post.mobile.toc: 目录
+post.mobile.back_to_top: 返回顶部
+post.mobile.share: 分享
+search.search: 搜索...
+search.no_results: 抱歉，没有符合您搜索条件的结果。请换其它关键词再试。
+tag_cloud.zero: 没有标签
+pagination.page: 第 %d 页，共 %d 页
+counter.tag_cloud.zero: 没有标签
+counter.tag_cloud.one: ''
+counter.tag_cloud.other: ''
+counter.categories.zero: 没有分类
+counter.categories.one: ''
+counter.categories.other: ''
+counter.archive_posts.zero: 没有归档
+counter.archive_posts.one: ''
+counter.archive_posts.other: ''
+comments.no_js: 加载评论需要在浏览器启用 JavaScript 脚本支持。
+tooltip.copy_tip: 复制到粘贴板！
+tooltip.copied: 复制成功！

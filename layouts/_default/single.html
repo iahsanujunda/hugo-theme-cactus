@@ -1,0 +1,11 @@
+{{ define "main" }}
+{{- /* Generic page (§5) — port of layout/page.ejs (default branch).
+       Posts use layouts/posts/single.html; the Hexo search / tags / categories
+       page-types map to Hugo's search page (§8) and taxonomy templates (§6). */ -}}
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  {{ partial "post/gallery.html" . }}
+  <div class="content" itemprop="articleBody">
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}

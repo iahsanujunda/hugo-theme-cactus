@@ -1,0 +1,14 @@
+{{- /* Pagination (§3/§6) — port of _partial/pagination.ejs.
+       Requires .Paginate to have been called earlier in the page (archive.html). */ -}}
+{{- $p := .Paginator -}}
+{{- if gt $p.TotalPages 1 -}}
+<div class="pagination">
+  {{- if $p.HasPrev }}
+    <a href="{{ $p.Prev.URL }}"><i class="fa-solid fa-angle-left"></i></a>
+  {{- end }}
+  <span class="page-number">{{ printf (i18n "pagination.page") $p.PageNumber $p.TotalPages }}</span>
+  {{- if $p.HasNext }}
+    <a href="{{ $p.Next.URL }}"><i class="fa-solid fa-angle-right"></i></a>
+  {{- end }}
+</div>
+{{- end -}}

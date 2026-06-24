@@ -1,0 +1,45 @@
+{{- /* Desktop post actions (§5) — port of _partial/post/actions_desktop.ejs.
+       jQuery inline handlers replaced with vanilla helpers (main.js, §8).
+       "previous" links to the older post (.PrevInSection), "next" to the newer
+       post (.NextInSection) — matching the demo. */ -}}
+<div id="header-post">
+  <a id="menu-icon" href="#" aria-label="{{ i18n "icons.menu" }}"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="{{ i18n "icons.menu" }}"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="{{ i18n "icons.top" }}" onclick="return cactusScrollTop();" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        {{- range .Site.Menus.main -}}
+          <li><a href="{{ .URL | relLangURL }}">{{ i18n (printf "nav.%s" .Name) | default .Name }}</a></li>
+        {{- end -}}
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        {{ with .PrevInSection }}
+        <li><a class="icon" aria-label="{{ i18n "post.desktop.previous" }}" href="{{ .RelPermalink }}"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="cactusToggle('i-prev');" onmouseout="cactusToggle('i-prev');"></i></a></li>
+        {{ end }}
+        {{ with .NextInSection }}
+        <li><a class="icon" aria-label="{{ i18n "post.desktop.next" }}" href="{{ .RelPermalink }}"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="cactusToggle('i-next');" onmouseout="cactusToggle('i-next');"></i></a></li>
+        {{ end }}
+        <li><a class="icon" aria-label="{{ i18n "post.desktop.back_to_top" }}" href="#" onclick="return cactusScrollTop();"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="cactusToggle('i-top');" onmouseout="cactusToggle('i-top');"></i></a></li>
+        <li><a class="icon" aria-label="{{ i18n "post.desktop.share" }}" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="cactusToggle('i-share');" onmouseout="cactusToggle('i-share');" onclick="cactusToggle('share');return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">{{ i18n "post.desktop.previous" }}</span>
+      <span id="i-next" class="info" style="display:none;">{{ i18n "post.desktop.next" }}</span>
+      <span id="i-top" class="info" style="display:none;">{{ i18n "post.desktop.back_to_top" }}</span>
+      <span id="i-share" class="info" style="display:none;">{{ i18n "post.desktop.share" }}</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      {{ partial "post/share.html" (dict "page" . "iconClass" "") }}
+    </div>
+    {{ $toc := .TableOfContents }}
+    {{ if strings.Contains $toc "<li" }}
+      <div id="toc">
+        {{ $toc }}
+      </div>
+    {{ end }}
+  </span>
+</div>

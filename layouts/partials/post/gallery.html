@@ -1,0 +1,12 @@
+{{- /* Post gallery (§5) — port of _partial/post/gallery.ejs.
+       Justified layout is initialized by main.js (vanilla, §8). */ -}}
+{{- with .Params.photos -}}
+<div class="article-gallery">
+  {{- $gid := $.RelPermalink | anchorize -}}
+  {{- range . -}}
+  <a class="gallery-item" href="{{ . }}" rel="gallery_{{ $gid }}">
+    <img src="{{ . }}" itemprop="image" />
+  </a>
+  {{- end -}}
+</div>
+{{- end -}}

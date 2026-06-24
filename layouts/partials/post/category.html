@@ -1,0 +1,14 @@
+{{- /* Post categories (§5) — port of _partial/post/category.ejs (list_categories, ' › ' separator). */ -}}
+{{- with .Params.categories -}}
+<div class="article-category">
+  <i class="fa-solid fa-archive"></i>
+  {{- range $i, $c := . -}}
+    {{- if $i }} › {{ end -}}
+    {{- with site.GetPage (printf "/categories/%s" ($c | urlize)) -}}
+      <a class="article-category-link" href="{{ .RelPermalink }}">{{ $c }}</a>
+    {{- else -}}
+      <span class="article-category-link">{{ $c }}</span>
+    {{- end -}}
+  {{- end -}}
+</div>
+{{- end -}}

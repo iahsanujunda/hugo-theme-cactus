@@ -1,0 +1,11 @@
+{{- /* Search index (§9) — replaces Hexo's search.xml. Emitted at /index.json
+       because [outputs] home includes "JSON". Each entry mirrors the 3 fields
+       search.js consumes; content is server-side plain text via .Plain.
+       Indexes posts + pages (like hexo-generator-search), minus the search page. */ -}}
+{{- $index := slice -}}
+{{- range .Site.RegularPages -}}
+  {{- if ne .Layout "search" -}}
+    {{- $index = $index | append (dict "title" (.Title | default "Untitled") "url" .Permalink "content" .Plain) -}}
+  {{- end -}}
+{{- end -}}
+{{- $index | jsonify -}}

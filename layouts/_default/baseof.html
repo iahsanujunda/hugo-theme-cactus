@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+{{ partial "head.html" . }}
+{{- $isPost := and .IsPage (eq .Section "posts") -}}
+<body class="max-width mx-auto px3 {{ .Site.Params.direction }}">
+  {{ if $isPost }}{{ partial "post/actions_desktop.html" . }}{{ end }}
+  <div class="content index py4 {{ if .IsHome }}h-card{{ end }}">
+    {{ if not $isPost }}
+      {{ partial "header.html" . }}
+    {{ end }}
+    {{ block "main" . }}{{ end }}
+    {{ if $isPost }}{{ partial "post/actions_mobile.html" . }}{{ end }}
+    {{ partial "footer.html" . }}
+  </div>
+  {{ partial "styles.html" . }}
+  {{ partial "scripts.html" . }}
+</body>
+</html>

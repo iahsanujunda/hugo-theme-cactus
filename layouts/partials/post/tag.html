@@ -1,0 +1,14 @@
+{{- /* Post tags (§5) — port of _partial/post/tag.ejs (list_tags, p-category links). */ -}}
+{{- with .Params.tags -}}
+<div class="article-tag">
+  <i class="fa-solid fa-tag"></i>
+  {{- range $i, $t := . -}}
+    {{- if $i }}, {{ end -}}
+    {{- with site.GetPage (printf "/tags/%s" ($t | urlize)) -}}
+      <a class="p-category" href="{{ .RelPermalink }}">{{ $t }}</a>
+    {{- else -}}
+      <span class="p-category">{{ $t }}</span>
+    {{- end -}}
+  {{- end -}}
+</div>
+{{- end -}}

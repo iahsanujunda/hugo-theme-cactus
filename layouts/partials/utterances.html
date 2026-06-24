@@ -1,0 +1,21 @@
+{{- /* utterances loader (§9) — extracted from scripts.ejs (was inline).
+       Pairs with the #utterances_thread container in comments.html.
+       FIX: upstream hard-coded issue-term to 'pathname'; here it honors the
+       configured `issueTerm` param. */ -}}
+{{- with .Site.Params.utterances -}}
+{{- if and $.Params.comments .enabled .repo .issueTerm .theme -}}
+<script type="text/javascript">
+  (function(){
+    var script = document.createElement('script');
+    script.src = 'https://utteranc.es/client.js';
+    script.setAttribute('repo', '{{ .repo }}');
+    script.setAttribute('issue-term', '{{ .issueTerm }}');
+    script.setAttribute('label', '{{ .label }}');
+    script.setAttribute('theme', '{{ .theme }}');
+    script.setAttribute('crossorigin', 'anonymous');
+    script.async = true;
+    document.getElementById('utterances_thread').appendChild(script);
+  }());
+</script>
+{{- end -}}
+{{- end -}}

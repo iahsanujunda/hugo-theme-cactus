@@ -1,0 +1,17 @@
+{{- /* Custom <meta> tags (§7/§10) — port of scripts/meta.js.
+       .Params.meta is a list of "key=value;key=value" strings; each string
+       becomes one <meta> tag with the given attributes. */ -}}
+{{- with .Params.meta -}}
+{{- range . -}}
+{{- $attrs := slice -}}
+{{- range (split . ";") -}}
+{{- $kv := split . "=" -}}
+{{- if ge (len $kv) 2 -}}
+{{- $attrs = $attrs | append (printf "%s=\"%s\"" (trim (index $kv 0) " \"'") (trim (index $kv 1) " \"'")) -}}
+{{- end -}}
+{{- end -}}
+{{- with $attrs }}
+<meta {{ delimit . " " | safeHTML }}>
+{{- end -}}
+{{- end -}}
+{{- end -}}

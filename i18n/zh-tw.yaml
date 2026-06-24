@@ -1,0 +1,43 @@
+# Hugo i18n — flattened from Hexo languages/zh-TW.yml (dotted keys).
+# Auto-generated in step 7 of the migration.
+nav.home: 首頁
+nav.about: 關於
+nav.articles: 文章
+nav.tag: 標籤
+nav.category: 分類
+nav.projects: 項目
+nav.search: 搜尋
+icons.menu: 目錄
+icons.top: 頂部
+footer.copyright: Copyright
+index.find_me_on: 出沒地
+index.enum_comma: ','
+index.enum_and: 和
+index.articles: 文章
+index.projects: 項目
+index.topics: 標題
+index.most_recent: 最近新增
+post.desktop.previous: 上一篇
+post.desktop.next: 下一篇
+post.desktop.back_to_top: 回到頁首
+post.desktop.share: 分享
+post.mobile.menu: 選單
+post.mobile.toc: 文章目錄
+post.mobile.back_to_top: 頁首
+post.mobile.share: 分享
+search.search: 搜尋...
+search.no_results: 沒有結果
+tag_cloud.zero: 目前還沒有標籤
+pagination.page: 第 %d 頁，共 %d 頁
+counter.tag_cloud.zero: 目前沒有標籤
+counter.tag_cloud.one: ''
+counter.tag_cloud.other: ''
+counter.categories.zero: 目前沒有分類
+counter.categories.one: ''
+counter.categories.other: ''
+counter.archive_posts.zero: 沒有文章哦！
+counter.archive_posts.one: ''
+counter.archive_posts.other: ''
+comments.no_js: 請開啟 JavaScript 功能來使用留言系統
+tooltip.copy_tip: 複製到剪貼簿！
+tooltip.copied: 複製成功！

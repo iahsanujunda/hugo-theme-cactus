@@ -1,0 +1,9 @@
+{{ define "main" }}
+{{- /* Search page (§9) — port of layout/page.ejs `search` branch.
+       Activated by `layout: search` in a page's front matter. */ -}}
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="content" itemprop="articleBody">
+    {{ partial "search.html" . }}
+  </div>
+</article>
+{{ end }}

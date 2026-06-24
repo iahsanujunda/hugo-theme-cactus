@@ -1,0 +1,62 @@
+{{- /* Page title (§5 — faithful port of scripts/page_title.js). */ -}}
+{{- $title := .Title | default .Site.Title -}}
+{{- if .IsHome -}}
+  {{- $title = .Site.Title -}}
+{{- else if and (eq .Kind "term") (eq .Data.Plural "categories") -}}
+  {{- $title = printf "%s: %s" (i18n "nav.category") .Title -}}
+{{- else if and (eq .Kind "term") (eq .Data.Plural "tags") -}}
+  {{- $title = printf "%s: %s" (i18n "nav.tag") .Title -}}
+{{- else if and (eq .Kind "section") (eq .Section "posts") -}}
+  {{- $title = i18n "nav.articles" -}}
+{{- end -}}
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+
+  {{/* SEO: description + Open Graph + Twitter cards (§7/§10, replaces Hexo
+       open_graph()), plus any custom meta(page) tags. */}}
+  {{ partial "opengraph.html" . }}
+  {{ partial "meta.html" . }}
+
+  {{ partial "favicon.html" . }}
+
+  <title>{{ $title }}</title>
+
+  {{/* Async analytics that belong in <head> (§9). */}}
+  {{ partial "google_analytics.html" . }}
+  {{ partial "umami_analytics.html" . }}
+
+  {{/* Styles — Sass pipeline with the `vars` dict (§6, DECIDED). */}}
+  {{ $opts := dict
+      "transpiler" "dartsass"
+      "outputStyle" "compressed"
+      "vars" (dict
+        "page_width" (.Site.Params.pageWidth | default 39)
+        "colorscheme" (.Site.Params.colorscheme | default "dark")
+        "logo_width" (default 0 (and .Site.Params.logo .Site.Params.logo.width))
+        "logo_height" (default 0 (and .Site.Params.logo .Site.Params.logo.height))
+        "logo_grayout" (cond (and .Site.Params.logo .Site.Params.logo.grayout) "true" "false")
+      ) }}
+  {{ with resources.Get "scss/style.scss" }}
+    {{ $css := . | css.Sass $opts | fingerprint }}
+    <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+  {{ end }}
+  {{/* RTL stylesheet (§11) — loaded only when direction is rtl; loads Vazir. */}}
+  {{ if eq .Site.Params.direction "rtl" }}
+    {{ with resources.Get "scss/rtl.scss" }}
+      {{ $rtl := . | css.Sass (dict "transpiler" "dartsass" "outputStyle" "compressed") | fingerprint }}
+      <link rel="stylesheet" href="{{ $rtl.RelPermalink }}" integrity="{{ $rtl.Data.Integrity }}">
+    {{ end }}
+  {{ end }}
+
+  {{/* RSS (Hugo builtin output format). */}}
+  {{ if .Site.Params.rss }}
+    {{ with .OutputFormats.Get "rss" }}
+      <link rel="alternate" href="{{ .RelPermalink }}" title="{{ $.Site.Title }}" type="application/rss+xml">
+    {{ end }}
+  {{ end }}
+
+  {{ partial "mathjax.html" . }}
+</head>

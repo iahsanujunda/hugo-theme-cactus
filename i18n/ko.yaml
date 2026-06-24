@@ -1,0 +1,41 @@
+# Hugo i18n — flattened from Hexo languages/kr.yml (dotted keys).
+# Auto-generated in step 7 of the migration.
+nav.home: 홈
+nav.about: 소개
+nav.articles: 글 목록
+nav.tag: 태그
+nav.category: 카테고리
+nav.projects: 프로젝트
+nav.search: 검색
+footer.copyright: 저작권
+index.find_me_on: 찾기
+index.enum_comma: ','
+index.enum_and: 그리고
+index.articles: 글 목록
+index.projects: 프로젝트
+index.topics: 주제
+index.most_recent: 가장 최근
+post.desktop.previous: 이전
+post.desktop.next: 다음
+post.desktop.back_to_top: 맨 위로
+post.desktop.share: 공유
+post.mobile.menu: 메뉴
+post.mobile.toc: TOC
+post.mobile.back_to_top: 맨 위로
+post.mobile.share: 공유
+search.search: 검색중...
+search.no_results: 검색 결과가 없습니다.
+tag_cloud.zero: 태그가 없습니다.
+pagination.page: 총 %d 중 %d
+counter.tag_cloud.zero: 태그가 없습니다.
+counter.tag_cloud.one: ''
+counter.tag_cloud.other: ''
+counter.categories.zero: 카테고리가 없습니다.
+counter.categories.one: ''
+counter.categories.other: ''
+counter.archive_posts.zero: 등록된 글이 없습니다.
+counter.archive_posts.one: ''
+counter.archive_posts.other: ''
+comments.no_js: 코멘트를 보려면 자바스크립트를 활성화하세요.
+tooltip.copy_tip: 클립보드에 복사하였습니다!
+tooltip.copied: 복사하였습니다!

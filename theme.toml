@@ -1,0 +1,19 @@
+name = "Cactus"
+license = "MIT"
+licenselink = "https://github.com/probberechts/hexo-theme-cactus/blob/master/LICENSE"
+description = "A responsive, clean and simple theme — Hugo port of hexo-theme-cactus."
+homepage = "https://github.com/probberechts/hexo-theme-cactus"
+demosite = "https://probberechts.github.io/hexo-theme-cactus/"
+tags = ["blog", "minimal", "responsive", "dark", "clean"]
+features = ["blog", "tags", "categories", "i18n", "search", "comments", "dark-mode"]
+min_version = "0.158.0"
+
+[author]
+  name = "Pieter Robberechts"
+  homepage = "https://github.com/probberechts"
+
+# Hugo port maintained separately from the original Hexo theme.
+[original]
+  author = "Pieter Robberechts"
+  homepage = "https://github.com/probberechts/hexo-theme-cactus"
+  repo = "https://github.com/probberechts/hexo-theme-cactus"

@@ -1,0 +1,21 @@
+{{ define "main" }}
+{{- /* Post (§5) — faithful port of layout/post.ejs. */ -}}
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    {{ partial "post/title.html" (dict "post" . "index" false "className" "posttitle") }}
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">{{ .Params.author | default .Site.Params.author }}</span>
+      </span>
+      {{ partial "post/date.html" (dict "post" . "isPost" true "className" "postdate" "useUpdated" false) }}
+      {{ partial "post/category.html" . }}
+      {{ partial "post/tag.html" . }}
+    </div>
+  </header>
+  {{ partial "post/gallery.html" . }}
+  <div class="content e-content" itemprop="articleBody">
+    {{ .Content }}
+  </div>
+</article>
+{{ partial "comments.html" . }}
+{{ end }}

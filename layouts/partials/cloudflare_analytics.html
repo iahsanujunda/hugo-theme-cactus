@@ -1,0 +1,6 @@
+{{- /* Cloudflare Analytics (§9) — extracted from scripts.ejs (was inline). */ -}}
+{{- with .Site.Params.cloudflareAnalytics -}}
+{{- if and .enabled .id -}}
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ .id }}"}'></script>
+{{- end -}}
+{{- end -}}

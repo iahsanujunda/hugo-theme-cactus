@@ -1,0 +1,5 @@
+{{- /* Late-loaded styles (§2) — port of _partial/styles.ejs.
+       Font Awesome, preloaded via the cdn.html helper (§9), with a local
+       fallback. (The gallery is now vanilla CSS+JS — §8 — so the
+       justified-gallery stylesheet is no longer needed.) */ -}}
+{{ partial "cdn.html" (dict "resource" "fontAwesome" "type" "link" "preload" true "local" "/lib/font-awesome/css/all.min.css") }}

@@ -1,0 +1,20 @@
+// Variables — port of _variables.styl.
+// Values that were Stylus `hexo-config(...)` reads now arrive from Hugo params
+// through the css.Sass `vars` option (the `hugo:vars` module).
+@use "hugo:vars" as cfg;
+
+// Fonts
+$font-family-body: "Menlo", "Meslo LG", monospace;
+$font-family-mono: "Menlo", "Meslo LG", monospace;
+$font-size: 14px;
+$line-height: 1.725;
+
+// Page width (rem). cfg.$page_width is a unitless number (e.g. 48 → 48rem).
+$page-width: cfg.$page_width * 1rem;
+
+// Logo
+$logo-width: cfg.$logo_width * 1px;
+$logo-height: cfg.$logo_height * 1px;
+// Passed as a string ("true"/"false") because Hugo's Sass `vars` can't emit a
+// raw boolean; convert back to a real Sass bool here.
+$logo-grayout: cfg.$logo_grayout == "true";

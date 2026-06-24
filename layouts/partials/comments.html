@@ -1,0 +1,12 @@
+{{- /* Comment containers (§5/§9) — port of _partial/comments.ejs.
+       Disqus/utterances loader scripts are wired in scripts.html (§9). */ -}}
+{{- if and .Params.comments .Site.Params.disqus.enabled -}}
+<div class="blog-post-comments">
+  <div id="disqus_thread"><noscript>{{ i18n "comments.no_js" }}</noscript></div>
+</div>
+{{- end -}}
+{{- if and .Params.comments .Site.Params.utterances.enabled -}}
+<div class="blog-post-comments">
+  <div id="utterances_thread"><noscript>{{ i18n "comments.no_js" }}</noscript></div>
+</div>
+{{- end -}}
