@@ -98,6 +98,35 @@ All theme options live under `[params]` — see
 Code highlighting uses Hugo's built-in Chroma — set the style under
 `[markup.highlight]`. Search requires `[outputs] home = ["HTML", "RSS", "JSON"]`.
 
+## Deployment
+
+Dart Sass is a **build-time** dependency, so your deploy/CI environment must
+have it too (the browser never needs it — the CSS is pre-compiled). The most
+portable way to add it is via npm, which is available on virtually every build
+image:
+
+```sh
+npm install -g sass
+```
+
+- **GitHub Actions** — after installing Hugo **extended**, add a step before the
+  build:
+
+  ```yaml
+  - run: npm install -g sass
+  - run: hugo --minify
+  ```
+
+- **Netlify / Cloudflare Pages / Vercel** — use a Hugo **extended** version and
+  prepend the Sass install to the build command:
+
+  ```sh
+  npm install -g sass && hugo --minify
+  ```
+
+If a build fails with a `TOCSS-DART` error or a message about installing Dart
+Sass, the transpiler is missing from that environment.
+
 ## Differences from the Hexo theme
 
 This is a faithful clone, with a few deliberate modernizations:
