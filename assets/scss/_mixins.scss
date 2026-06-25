@@ -28,9 +28,13 @@
 }
 
 // Approximation of nib's global-reset() (Meyer-style reset).
+// NOTE: `p` is deliberately excluded so paragraphs keep the browser-default
+// `margin: 1em 0`. Combined with `.content { display: flex }` (flex items don't
+// margin-collapse) this reproduces the airy paragraph spacing of the original
+// Hexo theme, whose nib global-reset() never zeroed `p` margins.
 @mixin global-reset {
   html, body, div, span, applet, object, iframe,
-  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  h1, h2, h3, h4, h5, h6, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
   del, dfn, em, img, ins, kbd, q, s, samp,
   small, strike, strong, sub, sup, tt, var,
