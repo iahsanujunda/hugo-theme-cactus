@@ -52,7 +52,7 @@ enableEmoji = true
 # ───────────────────────────────────────────────────────────────────────
 [params]
   author = "Pieter Robberechts"
-  description = "Hi, I'm a theme for the Hexo blogging framework. I'm particularly great for a personal web page with a simple blog. In this paragraph, you can provide some information about yourself. Below, your most recent or highlighted writings and projects are listed."
+  description = "Hi, I'm a theme for the Hugo static site generator. I'm particularly great for a personal web page with a simple blog. In this paragraph, you can provide some information about yourself. Below, your most recent or highlighted writings and projects are listed."
   dateFormat = "2 Jan 2006"        # matches the demo, e.g. "14 Nov 2016"
   direction = "ltr"                 # "rtl" loads the Vazir font
   projectsUrl = "http://github.com/probberechts"

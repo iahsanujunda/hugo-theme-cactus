@@ -1,8 +1,8 @@
 # Hexo `source/_data/projects.yml` → Hugo `.Site.Data.projects` (rendered in step 4).
 # Mirrors the cactus-dark demo site's Projects section.
-- name: Hexo
-  url: https://hexo.io
-  description: A fast, simple & powerful blog framework
+- name: Hugo
+  url: https://gohugo.io
+  description: The world's fastest framework for building websites
 - name: Font Awesome
   url: https://fontawesome.com
   description: The iconic font and CSS toolkit
