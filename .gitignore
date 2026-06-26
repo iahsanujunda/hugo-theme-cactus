@@ -3,8 +3,10 @@
 /resources/
 .hugo_build.lock
 exampleSite/public/
-exampleSite/resources/
 exampleSite/.hugo_build.lock
+# NOTE: exampleSite/resources/_gen is committed on purpose — it ships the
+# pre-compiled Dart Sass output so themes.gohugo.io can build the demo preview
+# without Dart Sass installed in its environment.
 
 # Dart Sass / Hugo module caches
 /.hugo_cache/

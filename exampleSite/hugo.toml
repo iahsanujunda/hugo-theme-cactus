@@ -1,4 +1,4 @@
-baseURL = "https://example.org/"
+baseURL = "https://example.com/"
 locale = "en-us"
 title = "Cactus"
 theme = "hugo-theme-cactus"
@@ -149,13 +149,7 @@ enableEmoji = true
   # Social links — Hexo `social_links` array → array-of-tables.
   [[params.socialLinks]]
     icon = "github"
-    link = "http://github.com/probberechts/cactus-dark"
-  [[params.socialLinks]]
-    icon = "twitter"
-    link = "/"
-  [[params.socialLinks]]
-    icon = "facebook"
-    link = "/"
+    link = "https://github.com/probberechts/hexo-theme-cactus"
   [[params.socialLinks]]
     icon = "mail"
     link = "mailto:name@email.com"

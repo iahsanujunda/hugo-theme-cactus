@@ -4,7 +4,7 @@ A responsive, clean and simple theme for Hugo. A faithful port of
 [hexo-theme-cactus](https://github.com/probberechts/hexo-theme-cactus) by
 Pieter Robberechts.
 
-![Cactus — dark](https://probberechts.github.io/hexo-theme-cactus/cactus-dark/public/images/logo.png)
+![Cactus — dark](https://raw.githubusercontent.com/iahsanujunda/hugo-theme-cactus/main/images/screenshot.png)
 
 ## Features
 
