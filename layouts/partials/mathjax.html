@@ -1,14 +1,16 @@
-{{- /* MathJax (§9) — extracted from head.ejs (was inline). MathJax v2.7.5. */ -}}
+{{- /* MathJax (§9) — extracted from head.ejs (was inline). MathJax v4. */ -}}
 {{- with .Site.Params.mathjax -}}
 {{- if .enabled -}}
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-      inlineMath: [['$','$']]
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$']]
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
     }
-  });
+  };
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" async></script>
+<script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js" async></script>
 {{- end -}}
 {{- end -}}

@@ -113,7 +113,7 @@ enableEmoji = true
 
   # Plugins / integrations (§9)
   [params.mathjax]
-    enabled = false
+    enabled = true
   [params.disqus]
     enabled = false
     shortname = "cactus-1"
