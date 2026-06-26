@@ -11,21 +11,21 @@
         <link rel="shortcut icon" href="https://www.gravatar.com/avatar/{{ $grav.hash }}?s=48">
       {{- end -}}
     {{- else -}}
-      <link rel="shortcut icon" href="{{ .url | relURL }}">
+      <link rel="shortcut icon" href="{{ partial "asseturl.html" .url }}">
     {{- end -}}
   {{- end -}}
   {{- with .android -}}
     {{- if and $hasGravatar .gravatar -}}
       <link rel="icon" type="image/png" sizes="192x192" href="https://www.gravatar.com/avatar/{{ if $grav.email }}{{ md5 $grav.email }}{{ else }}{{ $grav.hash }}{{ end }}?s=192">
     {{- else -}}
-      <link rel="icon" type="image/png" sizes="192x192" href="{{ .url | relURL }}">
+      <link rel="icon" type="image/png" sizes="192x192" href="{{ partial "asseturl.html" .url }}">
     {{- end -}}
   {{- end -}}
   {{- with .apple -}}
     {{- if and $hasGravatar .gravatar -}}
       <link rel="apple-touch-icon" sizes="180x180" href="https://www.gravatar.com/avatar/{{ if $grav.email }}{{ md5 $grav.email }}{{ else }}{{ $grav.hash }}{{ end }}?s=180">
     {{- else -}}
-      <link rel="apple-touch-icon" sizes="180x180" href="{{ .url | relURL }}">
+      <link rel="apple-touch-icon" sizes="180x180" href="{{ partial "asseturl.html" .url }}">
     {{- end -}}
   {{- end -}}
 {{- end -}}

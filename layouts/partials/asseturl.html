@@ -1,0 +1,14 @@
+{{- /* Resolve a configured static-asset path (e.g. params.logo.url,
+       params.favicon.*.url) to a URL that respects the sub-path in baseURL, so
+       the theme works when deployed under a sub-directory such as GitHub
+       project pages (https://user.github.io/<repo>/).
+
+       Hugo's relURL does NOT prepend the baseURL sub-path to an argument that
+       begins with "/", so strip the leading slash first. External URLs
+       (http://, https://, //) are returned unchanged. */ -}}
+{{- $u := . -}}
+{{- if or (strings.HasPrefix $u "http") (strings.HasPrefix $u "//") -}}
+{{- $u -}}
+{{- else -}}
+{{- $u | strings.TrimPrefix "/" | relURL -}}
+{{- end -}}

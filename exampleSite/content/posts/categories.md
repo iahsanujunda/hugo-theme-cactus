@@ -10,4 +10,4 @@ listed under the post meta and on the categories page.
 
 <!--more-->
 
-Visit the [categories page](/categories/) to see them aggregated with counts.
+Visit the [categories page]({{< relref "/categories" >}}) to see them aggregated with counts.

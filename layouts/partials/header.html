@@ -2,7 +2,7 @@
 {{- $logo := .Site.Params.logo -}}
 {{- $grav := .Site.Params.gravatar -}}
 <header id="header">
-  <a class="u-url u-uid" href="{{ "/" | relURL }}">
+  <a class="u-url u-uid" href="{{ .Site.Home.RelPermalink }}">
     {{- if and $logo $logo.enabled -}}
       {{- if and $grav (or $grav.email $grav.hash) $logo.gravatar -}}
         {{- $hash := cond (ne $grav.email "") (md5 (default "" $grav.email)) $grav.hash -}}
@@ -11,7 +11,7 @@
           srcset="{{ $base }}?s={{ $logo.width }}, {{ $base }}?s={{ mul $logo.width 1.5 }} 1.5x, {{ $base }}?s={{ mul $logo.width 2 }} 2x"
           src="{{ $base }}">
       {{- else -}}
-        <img id="logo" alt class="u-logo" src="{{ $logo.url | relURL }}">
+        <img id="logo" alt class="u-logo" src="{{ partial "asseturl.html" $logo.url }}">
       {{- end -}}
     {{- end -}}
     <div id="title">

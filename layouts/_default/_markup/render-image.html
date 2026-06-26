@@ -1,0 +1,12 @@
+{{- /* Markdown image render hook. Makes root-absolute image paths
+       (![](/images/x.png)) respect the baseURL sub-path so content renders
+       correctly under a sub-directory deploy (e.g. GitHub project pages).
+       Page-relative images are resolved as page resources; external and
+       protocol-relative URLs pass through unchanged. */ -}}
+{{- $src := .Destination -}}
+{{- if strings.HasPrefix $src "/" -}}
+  {{- $src = partial "asseturl.html" $src -}}
+{{- else if not (urls.Parse $src).IsAbs -}}
+  {{- with .Page.Resources.GetMatch $src -}}{{ $src = .RelPermalink }}{{- end -}}
+{{- end -}}
+<img src="{{ $src | safeURL }}" alt="{{ .Text }}"{{ with .Title }} title="{{ . }}"{{ end }}>

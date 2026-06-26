@@ -9,4 +9,4 @@ tags pages (tag sizes scale with how many posts use each tag).
 
 <!--more-->
 
-Visit the [tags page](/tags/) to see the tag cloud.
+Visit the [tags page]({{< relref "/tags" >}}) to see the tag cloud.
