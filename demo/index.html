@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cactus — a theme for Hugo</title>
+  <meta name="description" content="Demo of the Cactus theme for Hugo, available in four color schemes: dark, white, light and classic.">
+  <link rel="shortcut icon" href="dark/images/favicon.ico">
+  <style>
+    /* Self-contained landing page, styled after the Cactus "dark" scheme
+       (background #1d1f21, green accent #2bbc8a). Swatch colors below are the
+       real per-scheme backgrounds/accents from assets/scss/_colors.scss. */
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    html { height: 100%; }
+    body {
+      margin: 0;
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      background: #1d1f21;
+      color: #c9cacc;
+      font: 16px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    main { flex: 1 0 auto; width: 100%; max-width: 40rem; margin: 0 auto; padding: 4.5rem 1.5rem 2rem; }
+    h1 {
+      margin: 0 0 .25rem;
+      font-family: Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 2.5rem;
+      color: #eee;
+    }
+    h1::before { content: "$ "; color: #2bbc8a; }
+    .tagline { margin: 0 0 2rem; color: #908d8d; }
+    a { color: #2bbc8a; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    p a { color: #d480aa; }
+    .schemes { list-style: none; padding: 0; margin: 2.5rem 0; }
+    .schemes a {
+      display: flex; align-items: center; gap: 1rem;
+      padding: .9rem .5rem;
+      border-bottom: 1px solid #2c2e30;
+      color: #c9cacc;
+    }
+    .schemes a:hover { background: #232527; text-decoration: none; }
+    .schemes .name { flex: 1 0 auto; font-size: 1.15rem; }
+    .schemes .arrow { color: #908d8d; }
+    .swatch {
+      width: 4.5rem; height: 1.6rem; border-radius: 3px;
+      border: 1px solid #44464a; border-bottom-width: 4px;
+    }
+    .swatch.dark    { background: #1d1f21; border-bottom-color: #2bbc8a; }
+    .swatch.white   { background: #ffffff; border-bottom-color: #2bbc8a; }
+    .swatch.light   { background: #e2e0de; border-bottom-color: #d44375; }
+    .swatch.classic { background: #fafafa; border-bottom-color: #cc2a41; }
+    footer { flex-shrink: 0; padding: 1.5rem; text-align: center; color: #6a6c6f; font-size: .85rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Cactus</h1>
+    <p class="tagline">A responsive, clean and simple theme for
+      <a href="https://gohugo.io">Hugo</a>.</p>
+
+    <p>A faithful Hugo port of
+      <a href="https://github.com/probberechts/hexo-theme-cactus">hexo-theme-cactus</a>.
+      See the <a href="https://github.com/iahsanujunda/hugo-theme-cactus#readme">README</a>
+      for installation and configuration.</p>
+
+    <p>Live preview in each of the four color schemes:</p>
+    <ul class="schemes">
+      <li><a href="dark/"><span class="name">Dark</span><span class="swatch dark"></span><span class="arrow">&rarr;</span></a></li>
+      <li><a href="white/"><span class="name">White</span><span class="swatch white"></span><span class="arrow">&rarr;</span></a></li>
+      <li><a href="light/"><span class="name">Light</span><span class="swatch light"></span><span class="arrow">&rarr;</span></a></li>
+      <li><a href="classic/"><span class="name">Classic</span><span class="swatch classic"></span><span class="arrow">&rarr;</span></a></li>
+    </ul>
+  </main>
+
+  <footer>
+    Theme &copy; <a href="https://github.com/probberechts">Pieter Robberechts</a> &middot;
+    Hugo port by <a href="https://github.com/iahsanujunda">iahsanujunda</a> &middot;
+    <a href="https://github.com/iahsanujunda/hugo-theme-cactus">Source</a>
+  </footer>
+</body>
+</html>
