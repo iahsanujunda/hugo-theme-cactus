@@ -9,8 +9,8 @@ features = ["blog", "tags", "categories", "i18n", "search", "comments", "dark-mo
 min_version = "0.158.0"
 
 [author]
-  name = "Pieter Robberechts"
-  homepage = "https://github.com/probberechts"
+  name = "iahsanujunda"
+  homepage = "https://github.com/iahsanujunda"
 
 # Hugo port maintained separately from the original Hexo theme.
 [original]
